@@ -1,6 +1,7 @@
 package com.example.youtubevideoshow;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.StringDef;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DownloadManager;
@@ -22,6 +23,8 @@ import android.widget.Toast;
 
 //前面build.gradle(app)裡面implementation他人專案後，andriod studio會自己抓取class
 //用ctrl + 左鍵點選下列class都可以看見原始碼
+import java.util.ArrayList;
+
 import at.huber.youtubeExtractor.VideoMeta;
 import at.huber.youtubeExtractor.YouTubeExtractor;
 import at.huber.youtubeExtractor.YtFile;
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mbtnShowDownloadLink, mbtnDownloadFile , mbtnClear;
     private EditText medYoutubeLink, medDownloadLink;
     private TextView mtvYoutibeVideoName;
+
+    private int[] itagTupe = {
+            17,36,5,43,18,22,160,133,134,135,136,137,264,266,298,299,140,141,256,258,278,242,243,244,247,248,271,313,302,308,303,315,171,249,250,251,91,92,93,94,95,96
+    };
 
 
     @Override
@@ -73,9 +80,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     // Something went wrong we got no urls. Always check this.
                     return;
                 }
-
-                int itag = 22;
+                ytFiles.toString();
+                ArrayList<YtFile> ytFiles_array = new ArrayList<>();
+                int height = 0;
+                int itag = 0;
+                for(int i= 0;i<ytFiles.size();i++){
+                    ytFiles_array.add(ytFiles.valueAt(i));
+                    if(ytFiles_array.get(i).getFormat().getHeight() > height){
+                        height = ytFiles_array.get(i).getFormat().getHeight();
+                        itag = ytFiles_array.get(i).getFormat().getItag();
+                    }
+                }
                 // ytFile represents one file with its url and meta data
+                Log.w("itag", String.valueOf(itag));
                 YtFile ytFile = ytFiles.get(itag);      //YtFile為作者自訂的class
                 downloadLink = ytFile.getUrl();         //轉出的格式應該是串流(沒認真研究)，用電腦打開的話會看到影片慢慢載入，也可以隨便點擊段落開始播放
                 videoName = vMeta.getTitle();
