@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:textAppearance="@android:style/TextAppearance.WindowTitle" />
+
+
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_margin="15dp"
+       android:padding="10dp">
+
+       <EditText
+           android:id="@+id/edYoutubeLink"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:autofillHints=""
+           android:hint="@string/input_youtube_link"
+           android:inputType="textUri"
+           android:singleLine="false"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
+
+
+       <Button
+           android:id="@+id/btnShowDownloadLink"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="@string/show_download_link"
+           android:layout_marginTop="20dp"
+           app:layout_constraintTop_toBottomOf="@id/edYoutubeLink"
+           app:layout_constraintStart_toStartOf="parent"  />
+
+       <TextView
+           android:id="@+id/edVideoName"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/youtube_file_name"
+           android:layout_marginTop="20dp"
+           android:textSize="15sp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/btnShowDownloadLink" />
+
+       <EditText
+           android:id="@+id/edDownloadLink"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="@string/download_link"
+           android:layout_marginTop="20dp"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/edVideoName"
+           android:inputType="textUri" />
+       <Button
+           android:id="@+id/btnDownloadFile"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:text="@string/download_file"
+           android:visibility="invisible"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/edDownloadLink"/>
+
+       <Button
+           android:id="@+id/btnClear"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="20dp"
+           android:text="Clear"
+           android:visibility="invisible"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/btnDownloadFile"/>
+
+
+
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">YouTube Download</string>
+    <string name="error_no_yt_link">Not a valid YouTube link!</string>
+    <string name="input_youtube_link">請放入youtube影片連結</string>
+    <string name="download_link">下載連結</string>
+    <string name="temporary_link">臨時連結</string>
+    <string name="show_download_link">顯示下載連結</string>
+    <string name="youtube_file_name">影片名稱</string>
+    <string name="download_file">下載檔案</string>
+
+</resources>
